@@ -28,6 +28,8 @@ gem 'chartkick', '~> 1.4', '>= 1.4.2'
 gem 'groupdate', '~> 2.5', '>= 2.5.2'
 # we active median
 gem 'active_median', '~> 0.1.2'
+# Intelligent serach made easy
+gem 'searchkick', '~> 1.2', '>= 1.2.1'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
