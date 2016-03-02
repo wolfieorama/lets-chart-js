@@ -1,2 +1,8 @@
-<h1>Homes#show</h1>
-<p>Find me in app/views/homes/show.html.erb</p>
+<h1 style="text-align: center;">Homes</h1>
+
+<div class="row">
+  <div class="col-xs-6">
+    <h3> Visits by Day</h3>
+    <%= line_chart @visits.group_by_day(:visited_at, format: "%B %d, %Y").count, discrete: true %>
+  </div>
+</div>
