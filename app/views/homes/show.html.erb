@@ -2,12 +2,24 @@
 
 <div class="row">
   <div class="col-xs-6">
-    <h3> Visits by Day</h3>
+    <h3> Visits by Day (single series)</h3>
     <%= line_chart @visits.group_by_day(:visited_at, format: "%B %d, %Y").count, discrete: true %>
   </div>
 
   <div class="col-xs-6">
-    <h3>Visits By Country Per Day</h3>
+    <h3>Visits By Country Per Day (multiple series)</h3>
     <%= line_chart   Visit.pluck("country").uniq.map { |c| { name: c, data: @visits.where(country: c).group_by_day(:visited_at, format: "%B %d, %Y").count }  }, discrete: true %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-xs-6">
+    <h3> Total visits by country</h3>
+    <%= pie_chart @visits.group(:country).count %>
+  </div>
+
+  <div class="col-xs-6">
+    <h3>Visits By day</h3>
+    <%= geo_chart @visits.group(:country).count %>
   </div>
 </div>
