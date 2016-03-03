@@ -1,3 +1,3 @@
 class Visit < ActiveRecord::Base
-  searchkick
+  searchkick autocomplete:['country']
 end
