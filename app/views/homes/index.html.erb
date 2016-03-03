@@ -4,6 +4,10 @@
   <%= submit_tag("Search") %>
 <% end %>
 
+<% if @visits.suggestions.any? %>
+  <p>Did you mean: <%= @visits.suggestions.first %></p>
+<% end %>
+
 <div class="row">
   <% @visits.each do |visit| %>
       <ul>

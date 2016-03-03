@@ -2,7 +2,7 @@ class HomesController < ApplicationController
 
   def index
     q = params[:query].presence || "*"
-    @visits = Visit.search(q)
+    @visits = Visit.search(q, suggest: true)
   end
 
   def show
