@@ -1,15 +1,16 @@
 class HomesController < ApplicationController
 
   def index
-    if params[:query].present?
-      @visits = Visit.search(params[:query])
-    else
-      @visits = Visit.all
-    end
+    q = params[:query].presence || "*"
+    @visits = Visit.search(q)
   end
 
   def show
     @visits = Visit.all
+  end
+
+  def autocomplete
+    render json: Visit.search(params[:query], autocomplete: true, limit: 10).map(&:country)
   end
 
   def visits_by_day
