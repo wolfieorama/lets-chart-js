@@ -1,4 +1,13 @@
 class HomesController < ApplicationController
+
+  def index
+    if params[:query].present?
+      @visits = Visit.search(params[:query])
+    else
+      @visits = Visit.all
+    end
+  end
+
   def show
     @visits = Visit.all
   end

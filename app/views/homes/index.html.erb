@@ -1,0 +1,15 @@
+<%= form_tag("/homes", method: "get") do %>
+  <%= label_tag(:q, "Search for:") %>
+  <%= text_field_tag(:query) %>
+  <%= submit_tag("Search") %>
+<% end %>
+
+<div class="row">
+  <% @visits.each do |visit| %>
+      <ul>
+        <li ><%= visit.country %></li >
+        <li ><%= visit.load_time %></li >
+        <li ><%= visit.visited_at %></li >
+      </ul>
+    <% end %>
+</div>
