@@ -10,7 +10,7 @@ class HomesController < ApplicationController
   end
 
   def autocomplete
-    render json: Visit.search(params[:query], autocomplete: true, limit: 10).map(&:country)
+    render json: Visit.search(params[:term], fields: [{country: :text_start}], limit: 10).map(&:country)
   end
 
   def visits_by_day

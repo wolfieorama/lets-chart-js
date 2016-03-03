@@ -1,4 +1,5 @@
 $ ->
-  $('#query').typeahead
-    country: ""
-    remote: "/homes/autocomplete?query=%QUERY"
+  $('#query').autocomplete(
+    source: "/homes/autocomplete",
+    minLength: 2
+    )
