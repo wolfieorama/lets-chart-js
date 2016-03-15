@@ -8,6 +8,17 @@ class HomesController < ApplicationController
   def show
     @visits = Visit.all
 
+    @another_chart = LazyHighCharts::HighChart.new('graph') do |f|
+      f.title({ :text=>"test pie"})
+      f.series(:type=> 'pie',:name=> 'Total consumption',
+      :data=> [
+        {:name=> 'Jane', :y=> 13, :color=> 'red'},
+        {:name=> 'John', :y=> 23,:color=> 'green'},
+        {:name=> 'Joe', :y=> 19,:color=> 'blue'}
+      ],
+      :center=> [250, 100], :size=> 200)
+    end
+
     @chart = LazyHighCharts::HighChart.new('graph') do |f|
       f.title({ :text=>"Combination chart"})
       f.options[:xAxis][:categories] = ['Apples', 'Oranges', 'Pears', 'Bananas', 'Plums']
