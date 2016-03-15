@@ -11,7 +11,7 @@ class HomesController < ApplicationController
     @chart = LazyHighCharts::HighChart.new('graph') do |f|
       f.title({ :text=>"Combination chart"})
       f.options[:xAxis][:categories] = ['Apples', 'Oranges', 'Pears', 'Bananas', 'Plums']
-      f.labels(:items=>[:html=>"Total fruit consumption", :style=>{:left=>"40px", :top=>"8px", :color=>"black"} ])
+      f.labels(:items=>[:html=>"Total fruit consumption", :style=>{:left=>"40px", :top=>"8px", :color=>"red"} ])
       f.series(:type=> 'column',:name=> 'Jane',:data=> [3, 2, 1, 3, 4])
       f.series(:type=> 'column',:name=> 'John',:data=> [2, 3, 5, 7, 6])
       f.series(:type=> 'column', :name=> 'Joe',:data=> [4, 3, 3, 9, 0])
