@@ -33,6 +33,8 @@ gem 'searchkick', '~> 1.2', '>= 1.2.1'
 #for autocomplete
 gem 'jquery-ui-rails'
 
+gem 'lazy_high_charts', '~> 1.5', '>= 1.5.4'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
